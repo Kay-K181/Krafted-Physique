@@ -8,13 +8,17 @@
 
 /* Navbar */
 
+a{
+    text-decoration: none;
+}
+
 .NavLayout{
     background-color: black;
     display: flex;
     flex-direction: column;
     padding: 2rem;
     min-height: 100vh;
-    width: 17rem;
+    width: 17rem;    
 }
 
 .NavHeader{
@@ -32,6 +36,15 @@
     z-index: 1;
     padding: .5rem 0 .5rem .6rem;
     margin: 0.5rem 0 0.5rem 0;
+}
+
+.NavSection .active > div {
+    background-color: rgba(0, 0, 255, 0.701);
+}
+
+.NavSection .active > div::before {
+    transform: scaleX(1);
+    background-color: transparent;
 }
 
 .NavSection div::before{
@@ -52,7 +65,6 @@
     transform: scaleX(1);
 }
 
-
 .NavSection{
     background-color: black;
 }
@@ -62,6 +74,16 @@
     text-align: center;
     opacity: .2;
     font-style: italic;
+}
+
+/* Contact Us */
+
+.contactUsLayout{
+    width: 50%;
+    text-align: center;
+    background-color: red;
+    margin-left: 19rem;
+    padding-left: 19rem;    
 }
 
 @media screen and (max-width: 576px) {
