@@ -20,9 +20,6 @@ export default function Navbar(){
                     <div>Contact Us</div>
                 </NavLink>
             </div>
-            <footer className="NavFooter">
-                <p>Krafted Physique</p>
-            </footer>
         </nav>
     )
 }
