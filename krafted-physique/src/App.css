@@ -1,42 +1,181 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;    
+    background-color: hwb(0 8% 92%);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Navbar */
+
+a{
+    text-decoration: none;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.NavLayout{
+    background-color: black;       
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 1.6rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.NavHeader{
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0 1rem 0 2rem;
+    border-right: solid grey 1px;
+    background-color: black;
 }
 
-.card {
-  padding: 2em;
+.NavSection{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex: 1;
+    background-color: black;
+    
 }
 
-.read-the-docs {
-  color: #888;
+.NavSection div{
+    position: relative;    
+    font-size: 1rem;
+    background-color: black;
+    cursor: pointer;
+    z-index: 1;
+    padding: 0.5rem 1rem;
+}
+
+.NavSection .active > div {
+    background-color: rgba(0, 0, 255, 0.701);
+}
+
+.NavSection .active > div::before {
+    transform: scaleX(1);
+    background-color: transparent;
+}
+
+.NavSection div::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 255, 0.701);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease-in-out;
+}
+
+.NavSection div:hover::before{
+    transform: scaleX(1);
+}
+
+/* Homepage */
+.homepageContainer{
+    position: relative;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.homepageImg{
+    display: block;
+    filter: grayscale(70%);
+    opacity: .4;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.homepageImgText{
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    font-size: 1rem;
+}
+
+.mainSectionContainer{
+    padding: 2.3rem 0 1rem 2rem;
+}
+
+/* Contact Us */
+
+.contactUsLayout{
+    width: 50%;
+    text-align: center;
+    background-color: red;
+    margin-left: 19rem;
+    padding-left: 19rem;    
+}
+
+@media screen and (max-width: 576px) {
+     .NavLayout{
+        flex-direction: row;
+        min-height: max-content;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        align-items: center;
+        padding: 1.4rem .5rem;  
+        justify-content:center; 
+        gap: .7rem;
+        margin-bottom: 0;
+     }   
+
+     .NavSection{
+        display: flex; 
+        gap: .7rem;                   
+     }
+
+     .NavSection div{
+        padding: 0;
+        font-size: .8rem;
+    }
+
+     .NavHeader{
+        margin-bottom: 0;
+        font-size: .8rem;
+        border-right: 1px grey solid;
+        padding-right: .3rem;
+     }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .NavLayout{
+       flex-direction: row;
+       min-height: max-content;
+       position: fixed;
+       bottom: 0;
+       width: 100%;
+       align-items: center;
+       padding: 1.4rem .5rem;  
+       justify-content:center; 
+       gap: 1.2rem;
+       margin-bottom: 0;
+    }   
+
+    .NavSection{
+       display: flex; 
+       gap: 1.2rem;                   
+    }
+
+    .NavSection div{
+       padding: 0;
+       font-size: 1rem;
+   }
+
+    .NavHeader{
+       margin-bottom: 0;
+       font-size: 1rem;
+       border-right: 1px grey solid;
+       padding-right: .3rem;
+    }
+
+    .NavFooter{
+       display: none;
+    }
 }
