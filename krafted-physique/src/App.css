@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     color: #fff;
@@ -8,11 +8,11 @@
 
 /* Navbar */
 
-a{
+a {
     text-decoration: none;
 }
 
-.NavLayout{
+.NavLayout {
     background-color: black;       
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@ a{
     padding: 1.6rem 0;
 }
 
-.NavHeader{
+.NavHeader {
     font-size: 1.4rem;
     font-weight: 500;
     padding: 0 1rem 0 2rem;
@@ -29,16 +29,15 @@ a{
     background-color: black;
 }
 
-.NavSection{
+.NavSection {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex: 1;
     background-color: black;
-    
 }
 
-.NavSection div{
+.NavSection div {
     position: relative;    
     font-size: 1rem;
     background-color: black;
@@ -56,7 +55,7 @@ a{
     background-color: transparent;
 }
 
-.NavSection div::before{
+.NavSection div::before {
     content: '';
     position: absolute;
     top: 0;
@@ -70,112 +69,208 @@ a{
     transition: transform 200ms ease-in-out;
 }
 
-.NavSection div:hover::before{
+.NavSection div:hover::before {
     transform: scaleX(1);
 }
 
 /* Homepage */
-.homepageContainer{
+.homePageContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepageImgContainer {
     position: relative;
     text-align: center;
-    width: 50%;
+    width: 45%;
     margin: auto;
 }
 
-.homepageImg{
+.homepageImg {
     display: block;
     filter: grayscale(70%);
-    opacity: .4;
+    opacity: .6;
     width: 100%;
     object-fit: cover;
     border-radius: 20px;
 }
 
-.homepageImgText{
+.homepageImgText {
     position: absolute;
-    top: 70%;
+    top: 75%;
     left: 5%;
     font-size: 1rem;
 }
 
-.mainSectionContainer{
-    padding: 2.3rem 0 1rem 2rem;
+.workoutPlanBtn {
+    position: absolute;
+    top: 81%;
+    left: 4%;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    background-color: rgba(0, 0, 255, 0.701);
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out, color .35s ease-in-out, width .35s;
+}
+
+.workoutPlanBtn:hover {
+    background-color: white;
+    color: black;
+    width: 15rem;
+}
+
+.mainSectionContainer {
+    padding: 2.3rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+}
+
+.primaryHeader {
+    margin-bottom: 1.5rem;
+}
+
+.mainSectionGrid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.mainSectionGrid img {
+    width: 100%;
+    border-radius: .7rem;
+    filter: grayscale(0);
+}
+
+.mainSectionGrid p {
+    padding: 1rem 0;    
+}
+
+.mainSectionGrid div {
+    border-radius: .6rem; 
+    outline: 1px solid rgba(0, 119, 255, 0.976);  
+    cursor: pointer;
+    transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+    text-align: center;
+}
+
+.mainSectionGrid div:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 10px 20px rgba(0, 119, 255, 0.976);  
 }
 
 /* Contact Us */
 
-.contactUsLayout{
+.contactUsLayout {
     width: 50%;
+    margin: auto;
     text-align: center;
     background-color: red;
-    margin-left: 19rem;
-    padding-left: 19rem;    
 }
 
 @media screen and (max-width: 576px) {
-     .NavLayout{
-        flex-direction: row;
-        min-height: max-content;
+    .homepageImgText{
+        font-size: 1.2rem;
+        position: absolute;
+        top: 10%;
+        left: 28%;
+    }
+
+    .homepageImgContainer{
+        width: 100%;
+    }
+
+    .workoutPlanBtn{
+        font-size: 1rem;
+        padding: 0.1rem .5rem;
+    }
+
+    .NavLayout {
         position: fixed;
         bottom: 0;
         width: 100%;
-        align-items: center;
-        padding: 1.4rem .5rem;  
-        justify-content:center; 
-        gap: .7rem;
+        gap: 1rem;
         margin-bottom: 0;
-     }   
+        padding: 1rem 0;
+        z-index: 2;
+    }
 
-     .NavSection{
-        display: flex; 
-        gap: .7rem;                   
-     }
+    .NavHeader {
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0 1rem 0 2rem;
+        border-right: solid grey 1px;
+        background-color: black;
+    }
 
-     .NavSection div{
-        padding: 0;
+    .NavSection {
+        gap: 0rem;
+        align-items: center;
+    }
+
+    .NavSection div {
         font-size: .8rem;
     }
 
-     .NavHeader{
-        margin-bottom: 0;
-        font-size: .8rem;
-        border-right: 1px grey solid;
-        padding-right: .3rem;
-     }
+    .mainSectionGrid{
+        margin-bottom: 3rem;
+    }
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
-    .NavLayout{
-       flex-direction: row;
-       min-height: max-content;
-       position: fixed;
-       bottom: 0;
-       width: 100%;
-       align-items: center;
-       padding: 1.4rem .5rem;  
-       justify-content:center; 
-       gap: 1.2rem;
-       margin-bottom: 0;
-    }   
 
-    .NavSection{
-       display: flex; 
-       gap: 1.2rem;                   
+    .homepageImgContainer{
+        width: 100%;
     }
 
-    .NavSection div{
-       padding: 0;
-       font-size: 1rem;
-   }
-
-    .NavHeader{
-       margin-bottom: 0;
-       font-size: 1rem;
-       border-right: 1px grey solid;
-       padding-right: .3rem;
+    .NavLayout {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        gap: 1rem;
+        margin-bottom: 0;
+        padding: 1rem 0;
+        z-index: 2;
     }
 
-    .NavFooter{
-       display: none;
+    .NavHeader {
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0 1rem 0 2rem;
+        border-right: solid grey 1px;
+        background-color: black;
+    }
+
+    .NavSection {
+        gap: 0rem;
+        align-items: center;
+    }
+
+    .NavSection div {
+        font-size: .8rem;
+    }
+
+    .mainSectionGrid{
+        margin-bottom: 3rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .homepageImgContainer{
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .homepageImgContainer{
+        width: 60%;
     }
 }
