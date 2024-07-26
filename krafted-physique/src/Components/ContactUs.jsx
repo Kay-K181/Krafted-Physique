@@ -12,11 +12,15 @@ export default function ContactUs(){
 
     return(
         <div className="contactUsContainer">
-            <img className="contactUsImg" src="https://cdn.pixabay.com/photo/2018/04/18/09/48/animal-3329963_1280.png" alt="Image of an ape"/>
-            <div className="titleAndFormContainer">
-                <div className="contactUsTitle">Contact Us</div>
-                    <form className="formLayout">
+            <div className="contactUsTitleContainer">
+                <h4 className="contactUsTitle">Get in touch with Krafted Physique</h4>
+                <p>Please use the form below to contact us with any questions you have. We aim to respond within 24 hours.</p>
+            </div>
+            <div className="formContainer">
+                <h4>Contact Us</h4>
+                <form className="formLayout">
                         <label>
+                            <span>Name</span>
                             <input
                                 type="text"
                                 name="username"
@@ -27,6 +31,7 @@ export default function ContactUs(){
                             </input>
                         </label>
                         <label>
+                            <span>Email</span>
                             <input
                                 type="email"
                                 name="email"
@@ -37,6 +42,7 @@ export default function ContactUs(){
                             </input>
                         </label>
                         <label>
+                            <span>Message</span>
                             <textarea 
                                 name="postContent" 
                                 rows={4} 
@@ -47,10 +53,10 @@ export default function ContactUs(){
                             />
                         </label>    
                         <button>
-                            Contact Us
+                            Submit
                         </button>
                     </form>
-                </div>
+            </div>
         </div>
     )
 }
