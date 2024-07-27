@@ -14,13 +14,14 @@ export default function FAQ(){
 
     return (
         <div className="faqContainer">
-            <img src="https://cdn.pixabay.com/photo/2022/08/02/03/22/monkey-7359393_1280.png" alt="ape walking" />
-            <h1 className="titleFAQ">Frequently Asked Questions</h1>
+            <div className="titleContainer">
+                <h1 className="titleFAQ">Frequently Asked Questions</h1>
+            </div>
             <div className="accordian">
                 {data.map((item, index) => (
                     <div className="item" key={index}>
                     <div className="title" onClick={() => toggle(index)}>
-                        <h2 className="question">{item.question}</h2> 
+                        <h3 className="question">{item.question}</h3> 
                         <span>{selected === index ? "-" : "+"}</span>         
                     </div> 
                     <div className={`answer ${selected === index ? "show" : ''}`}>{item.answer}</div>               
