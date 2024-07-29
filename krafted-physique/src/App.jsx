@@ -1,5 +1,4 @@
-import React from "react"
-import { Router, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import Navbar from "./Components/Navbar"
 import Home from "./Components/Home"
 import TopRated from "./Components/TopRated"
