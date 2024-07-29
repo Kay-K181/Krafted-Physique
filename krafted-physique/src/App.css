@@ -319,12 +319,6 @@ a {
 
 @media screen and (max-width: 576px) {
     /* Homepage */
-    .homepageImgText {
-        font-size: 1.2rem;
-        position: absolute;
-        top: 10%;
-        left: 28%;
-    }
 
     .homepageImgContainer {
         width: 100%;
