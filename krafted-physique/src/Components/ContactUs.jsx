@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-export default function ContactUs(){
+export default function ContactUs() {
 
     const [input, setInput] = useState({username: '', email: '', postContent:''});
     
