@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import Navbar from "./Components/Navbar"
+import Footer from "./Components/Footer.jsx"
 import Home from "./Components/Home"
 import TopRated from "./Components/TopRated"
 import FAQs from "./Components/FAQ.jsx"
@@ -16,6 +17,7 @@ export default function App(){
         <Route path="/FAQs" element={<FAQs />}/>
         <Route path="/ContactUs" element={<ContactUs />}/>
       </Routes>
+      <Footer/>
     </>    
   )
 }
