@@ -317,6 +317,38 @@ a {
     text-align: center;
 }
 
+/* Footer */
+.footerContainer {
+    background-color: black;
+    display: flex;
+    width: 100%;
+    align-items: center; 
+    padding: 3rem 4rem;  
+}
+
+.footerContactLayout {
+    width: 50%;
+}
+
+.aboutCompanyLayout {
+    width: 50%;
+}
+
+.textImgContainer {
+    display: flex;
+    margin-bottom: .4rem;
+}
+
+.footerContactLayout img{
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.aboutCompanyLayout > h4 {
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
 @media screen and (max-width: 576px) {
     /* Homepage */
 
@@ -340,11 +372,7 @@ a {
     }
 
     .NavHeader {
-        font-size: 1rem;
-        font-weight: 500;
-        padding: 0 1rem 0 2rem;
-        border-right: solid grey 1px;
-        background-color: black;
+        display: none;
     }
 
     .NavSection {
@@ -388,6 +416,12 @@ a {
     .formLayout button:hover {
         background-color: rgba(0, 0, 255, 0.85);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+
+    .footerContainer {
+        display: none;
     }
 }
 
@@ -457,7 +491,14 @@ a {
         background-color: rgba(0, 0, 255, 0.85);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+
+    /* Footer */
+
+    .footerContainer {
+        display: none;
+    }
 }
+
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
     .homepageImgContainer {
@@ -469,4 +510,13 @@ a {
     .homepageImgContainer {
         width: 60%;
     }
+
+    .footerContainer {
+        justify-content: center;
+    }
+
+    .footerContactLayout, .aboutCompanyLayout {
+        width: 38%;
+    }
+
 }
