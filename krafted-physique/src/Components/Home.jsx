@@ -1,33 +1,18 @@
+import { useEffect, useState } from "react";
+
 export default function Home() {
 
-    const info = [
-        {
-            image: "https://www.garagegymreviews.com/wp-content/uploads/IsolationExercises_15.jpeg",
-            text: "Chest",
-            description: "image of a chest"
-        },
-        {
-            image: "https://www.garagegymreviews.com/wp-content/uploads/IsolationExercises_16.jpeg",
-            text: "Back",
-            description: "image of a back"
-        },
-        {
-            image: "https://www.garagegymreviews.com/wp-content/uploads/IsolationExercises_8.jpeg",
-            text: "Legs",
-            description: "image of a legs"
-        },
-        {
-            image: "https://www.garagegymreviews.com/wp-content/uploads/IsolationExercises_17.jpeg",
-            text: "Shoulders",
-            description: "image of a shoulders"
-        },
-        {
-            image: "https://www.garagegymreviews.com/wp-content/uploads/IsolationExercises_12.jpeg",
-            text: "Arms",
-            description: "image of a arms"
-        }
-    ]
-    
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/muscle-groups')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setData(data);
+            })
+    }, [])
+        
     return(
         <div className="homePageContainer">
             <div className="homepageImgContainer">
@@ -40,10 +25,10 @@ export default function Home() {
             <section className="mainSectionContainer">
                 <h2 className="primaryHeader">Select Your Training Area</h2>
                 <div className="mainSectionGrid">
-                    {info.map((item, index) => (
-                        <div key={index}>
+                    {data.map((item) => (
+                        <div key={item.id}>
                             <img src={item.image} alt={item.description} />
-                            <p>{item.text}</p>
+                            <p>{item.title}</p>
                         </div>
                     ))}
                 </div>
