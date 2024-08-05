@@ -6,7 +6,7 @@ export default function MusclesGroups(){
     
     useEffect(() => {
             fetch('http://localhost:8000/muscle-groups')
-                .then((response) => response.json)
+                .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
                     setMuscleInfo(data);
