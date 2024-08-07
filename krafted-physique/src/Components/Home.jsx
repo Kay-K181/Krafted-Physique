@@ -3,15 +3,27 @@ import { useEffect, useState } from "react";
 export default function Home() {
 
     const [data, setData] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:8000/muscle-groups')
-            .then((response) => response.json())
+            .then((response) => {
+                if(response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Network response is not ok');
+                }
+            })
             .then((data) => {
                 console.log(data);
                 setData(data);
             })
+            .catch((error) => setError(error.message));
     }, [])
+
+    if(error) {
+        return <div>Error: {error}</div>
+    }
         
     return(
         <div className="homePageContainer">
