@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    color: #fff;
     font-family: "Montserrat", sans-serif;    
 }
 
@@ -17,6 +16,7 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 1.6rem 0;
+    color: white;
 }
 
 .NavHeader {
@@ -39,6 +39,7 @@ a {
     position: relative;    
     font-size: 1rem;
     background-color: black;
+    color: white;
     cursor: pointer;
     z-index: 1;
     padding: 0.5rem 1rem;
@@ -78,6 +79,7 @@ a {
     flex-direction: column;
     align-items: center;
     background-color: hwb(0 8% 92%);
+    color:white;
     padding-top: 2rem;    
 }
 
@@ -118,6 +120,7 @@ a {
     font-size: 1rem;
     padding: .5rem 1rem;
     background-color: rgba(0, 0, 255, 0.701);
+    color: white;
     border-radius: 15px;
     border: none;
     cursor: pointer;
@@ -179,6 +182,7 @@ a {
     min-height: 100vh;
     align-items: center;
     background-color: hwb(0 8% 92%);
+    color: white;
 }
 
 .titleContainer {
@@ -206,6 +210,28 @@ a {
     cursor: pointer;
 }
 
+.star {
+    font-size: 1rem;
+}
+
+.filled {
+    color: #FFD43B;
+}
+
+.empty {
+    color: #ccc; 
+}
+
+.nameContainer {
+    padding: 1rem 0 0 0;
+    font-weight: 400;
+}
+
+.opacity {
+    opacity: .2;
+    pointer-events: none;
+}
+
 
 /* FAQs */
 .faqContainer {
@@ -215,6 +241,7 @@ a {
     min-height: 100vh;
     align-items: center;
     background-color: hwb(0 8% 92%);
+    color: white;
 }
 
 .titleContainer {
@@ -272,6 +299,7 @@ a {
     width: 100%;
     min-height: 100vh;
     background-color: hwb(0 8% 92%);
+    color: white;
 }
 
 .contactUsTitleContainer {
@@ -354,6 +382,7 @@ a {
 /* Footer */
 .footerContainer {
     background-color: black;
+    color: white;
     display: flex;
     width: 100%;
     align-items: center; 
