@@ -77,7 +77,7 @@ export default function TopRated() {
                     <p onClick={() => filtered('Arms')}>Arms</p>
                     
                 </div>
-                <div className="mainSectionGrid">
+                <div className="sectionGrid">
                     {data.map((item) => (
                         <div key={item.id} onClick={() => moreInfo(item.id)}>
                             <img src={item.image} alt={item.description} />
@@ -92,9 +92,9 @@ export default function TopRated() {
                     <div className="infoContent">
                         <h2>Unlock the Secrets of Your Chosen Exercise</h2>
                         <p>{selectedItem?.description}</p>
-                        <p>{selectedItem?.level}</p>
-                        <p>{selectedItem?.equipment_type}</p>
-                        <button onClick={() => moreInfo(false)}>X</button>
+                        <p><span className="infoContentHeaders">Level:</span> {selectedItem?.level}</p>
+                        <p><span className="infoContentHeaders">Equipment used:</span> {selectedItem?.equipment_type}</p>
+                        <button onClick={() => moreInfo(false)} className="closeMoreInfo">X</button>
                     </div>
                 )}
             </section>
