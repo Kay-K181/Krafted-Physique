@@ -1,5 +1,10 @@
+import PageTemplate from "../Template/PageTemplate"
+
 export default function Legs() {
-    return(
-        ''
+    return (
+        <PageTemplate 
+            url={'legs'}
+            title={'Leg Day Excellence: Proven Strength and Toning'}
+        />
     )
 }

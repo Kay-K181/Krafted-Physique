@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
-import Chest from "./MusclePages/Chest";
-import Back from "./MusclePages/Back";
-import Shoulders from "./MusclePages/Shoulders";
-import Legs from "./MusclePages/Legs";
-import Arms from "./MusclePages/Arms";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Home() {
 
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         fetch('http://localhost:8000/muscle-groups')
@@ -29,32 +24,32 @@ export default function Home() {
             .catch((error) => setError(error.message));
     }, [])
 
-    function pages(title) {
-        switch (title) {
-            case "Chest": 
-                navigate("chest")
-                break;
-            case "Back": 
-                navigate("back")
-                break;
-            case "Shoulders": 
-                navigate("shoulders")
-                break;
-            case "Legs": 
-                navigate("legs")
-                break;
-            case "Arms": 
-                navigate("arms")
-                break;
-            default: 
-                <div>Page not found</div>;
-        }
-    }
-  
     if(error) {
         return <div>Error: {error}</div>
     }
-        
+
+    function pages(title) {
+        switch (title) {
+            case "Chest": 
+                navigate("/Chest");
+                break;
+            case "Back": 
+                navigate("/Back");
+                break;
+            case "Shoulders": 
+                navigate("/Shoulders");
+                break;
+            case "Legs": 
+                navigate("/Legs");
+                break;
+            case "Arms": 
+                navigate("/Arms");
+                break;
+            default: 
+                navigate('/');
+        }
+    }
+     
     return(
         <div className="homePageContainer">
             <div className="homepageImgContainer">
@@ -73,16 +68,8 @@ export default function Home() {
                             <p>{item.title}</p>
                         </div>
                     ))}
-                </div>
+                </div>               
             </section>
-
-            <Routes>
-                <Route path="chest" element={<Chest />}/>
-                <Route path="back" element={<Back />}/>
-                <Route path="shoulders" element={<Shoulders />}/>
-                <Route path="legs" element={<Legs />}/>
-                <Route path="arms" element={<Arms />}/>
-            </Routes>
         </div>
     )
 }

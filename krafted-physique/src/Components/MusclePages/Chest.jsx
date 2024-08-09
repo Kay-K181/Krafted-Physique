@@ -1,5 +1,10 @@
+import PageTemplate from "../Template/PageTemplate"
+
 export default function Chest() {
     return(
-        'Hellos'
+        <PageTemplate 
+            url = {"chest"}
+            title={'Chisel Your Arms: Proven Exercise Techniques'}
+        />
     )
 }
