@@ -1,4 +1,4 @@
-import PageTemplate from "./Template/PageTemplate";
+import PageTemplate from "./Template/GeneralPageTemplate";
 
 export default function TopRated() {
 
@@ -6,7 +6,7 @@ export default function TopRated() {
 
     return (
         <PageTemplate 
-            url={'top-rated'}
+            excerciseGroup={'top-rated'}
             title={'Power Up: Best-Rated Exercises'}
             filters={filters}
         />

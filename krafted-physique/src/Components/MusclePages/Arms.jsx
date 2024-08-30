@@ -1,9 +1,9 @@
-import PageTemplate from "../Template/PageTemplate"
+import PageTemplate from "../Template/GeneralPageTemplate"
 
 export default function Arms() {
     return (
         <PageTemplate 
-            url={'arms'}
+            excerciseGroup={'arms'}
             title={'Chisel Your Arms: Proven Exercise Techniques'}
         />
     )

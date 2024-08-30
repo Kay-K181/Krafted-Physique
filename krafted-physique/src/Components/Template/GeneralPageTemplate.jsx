@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import ResultRef from "../Modal/ResultRef";
 
-export default function PageTemplate({url, title, filters}) {
+export default function PageTemplate({excerciseGroup, title, filters}) {
 
     const [data, setData] = useState([]);
     const [originalData, setOriginalData] = useState([]);
     const [error, setError] = useState(null);
     const [gridId, setGridId] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null)
+    const modalDialog = useRef();
 
     useEffect(() => {
-        fetch(`http://localhost:8000/${url}`)
+        fetch(`http://localhost:8000/${excerciseGroup}`)
             .then((response) => {
             if(response.ok) {
                 return response.json();
@@ -26,13 +29,17 @@ export default function PageTemplate({url, title, filters}) {
             .catch((error) => setError(error.message));
     }, [])
 
-    function moreInfo(id) {
-        setGridId(id);
+    if(error) {
+        return <div>Error: {error}</div>
     }
 
-    const selectedItem = originalData.find(item => item.id === gridId);
+    function openModal(id) {
+        const item = originalData.find((item) => item.id === id);
+        setSelectedItem(item);
+        modalDialog.current.showModal();
+    }
 
-    function stars(rating) {
+        function stars(rating) {
         let starArr = [];
 
         for(let i=0; i<5; i++) {
@@ -56,9 +63,7 @@ export default function PageTemplate({url, title, filters}) {
         }        
     }
 
-    if(error) {
-        return <div>Error: {error}</div>
-    }
+  
 
     return(
         <div className="pagesContainer">
@@ -76,7 +81,7 @@ export default function PageTemplate({url, title, filters}) {
                 )}              
             <div className="sectionGrid">
                 {data.map((item) => (
-                    <div key={item.id} onClick={() => moreInfo(item.id)}>
+                    <div key={item.id} onClick={() => openModal(item.id)}>
                         <img src={item.image} alt={item.description} />
                         <h4 className="nameContainer">{item.name}</h4>
                         <p>{stars(item.rating)}</p>
@@ -84,17 +89,10 @@ export default function PageTemplate({url, title, filters}) {
                 ))}
             </div>
         </section>
-        <section className="moreInfo">
-            {gridId && ( 
-                <div className="infoContent">
-                    <h2>Unlock the Secrets of Your Chosen Exercise</h2>
-                    <p>{selectedItem?.description}</p>
-                    <p><span className="infoContentHeaders">Level:</span> {selectedItem?.level}</p>
-                    <p><span className="infoContentHeaders">Equipment used:</span> {selectedItem?.equipment_type}</p>
-                    <button onClick={() => moreInfo(false)} className="closeMoreInfo">X</button>
-                </div>
-            )}
-        </section>
+        <ResultRef 
+            ref = {modalDialog}
+            selectedItem = {selectedItem}           
+        />
     </div>
     )
 }

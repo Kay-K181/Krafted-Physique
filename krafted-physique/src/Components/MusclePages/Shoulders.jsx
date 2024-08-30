@@ -1,9 +1,9 @@
-import PageTemplate from "../Template/PageTemplate"
+import PageTemplate from "../Template/GeneralPageTemplate"
 
 export default function Shoulders() {
     return (
         <PageTemplate 
-            url={'shoulders'}
+            excerciseGroup={'shoulders'}
             title={'Shoulder Sculpting: Enhance Strength and Definition'}
         />
     )
