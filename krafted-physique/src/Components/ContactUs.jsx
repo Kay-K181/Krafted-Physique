@@ -5,9 +5,14 @@ export default function ContactUs() {
     const [input, setInput] = useState({username: '', email: '', postContent:''});
     
     const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInput(values => ({...values, [name]: value}))
+        const {name, value} = event.target;
+        setInput(prevData => ({...prevData, [name]: value}))
+    }
+
+    function submitInfo(e) {
+        e.preventDefault();
+        alert(`Thank you ${input.username}! Your message has been received`);
+        setInput({username: '', email: '', postContent:''});
     }
 
     return(
@@ -18,7 +23,7 @@ export default function ContactUs() {
             </div>
             <div className="formContainer">
                 <h4>Contact Us</h4>
-                <form className="formLayout">
+                <form className="formLayout" onSubmit={submitInfo}>
                         <label>
                             <span>Name</span>
                             <input
