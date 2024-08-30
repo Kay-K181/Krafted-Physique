@@ -1,33 +1,19 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import ResultRef from "../Modal/ResultRef";
+import useFetch from "../Hooks/useFetch";
 
 export default function PageTemplate({excerciseGroup, title, filters}) {
 
-    const [data, setData] = useState([]);
-    const [originalData, setOriginalData] = useState([]);
-    const [error, setError] = useState(null);
-    const [gridId, setGridId] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null)
     const modalDialog = useRef();
+    const {data, originalData, loading, error, setData} = useFetch(`http://localhost:8000/${excerciseGroup}`);
 
-    useEffect(() => {
-        fetch(`http://localhost:8000/${excerciseGroup}`)
-            .then((response) => {
-            if(response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Network response was not ok');
-            }})
-            .then((data) => {
-                console.log(data);
-                setData(data);
-                setOriginalData(data);
-            })
-            .catch((error) => setError(error.message));
-    }, [])
+    if(loading) {
+        return <div>Loading...</div>
+    }
 
     if(error) {
         return <div>Error: {error}</div>
@@ -67,10 +53,10 @@ export default function PageTemplate({excerciseGroup, title, filters}) {
 
     return(
         <div className="pagesContainer">
-        <div className={`titleContainer center ${gridId ? 'opacity' : ''}`}>
+        <div className={`titleContainer center`}>
             <h1 className="pagesTitle">{title}</h1>
         </div>
-        <section className={`pagesSectionContainer ${gridId ? 'opacity' : ''}`}>
+        <section className={'pagesSectionContainer'}>
             {filters && (
                 <div className="filterContainer">               
                     <h4>Filter:</h4>

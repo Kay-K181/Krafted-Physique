@@ -1,31 +1,18 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useFetch from "./Hooks/useFetch";
 
 
 export default function Home() {
 
-    const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
     const navigate = useNavigate(); 
+    const {data, loading, error} = useFetch('http://localhost:8000/muscle-groups');
 
-    useEffect(() => {
-        fetch('http://localhost:8000/muscle-groups')
-            .then((response) => {
-                if(response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Network response is not ok');
-                }
-            })
-            .then((data) => {
-                console.log(data);
-                setData(data);
-            })
-            .catch((error) => setError(error.message));
-    }, [])
+    if(loading) {
+        return <div>Loading...</div>;
+    }
 
     if(error) {
-        return <div>Error: {error}</div>
+        return <div>Error: {error}</div>;
     }
 
     function pages(title) {
