@@ -5,11 +5,13 @@ import Home from "./Components/Home"
 import TopRated from "./Components/TopRated"
 import FAQs from "./Components/FAQ.jsx"
 import ContactUs from "./Components/ContactUs"
+import ErrorPage from "./Components/ErrorPage.jsx"
 import Chest from "./Components/MusclePages/Chest.jsx"
 import Back from "./Components/MusclePages/Back.jsx"
 import Shoulders from "./Components/MusclePages/Shoulders.jsx"
 import Legs from "./Components/MusclePages/Legs.jsx"
 import Arms from "./Components/MusclePages/Arms.jsx"
+
 
 export default function App(){
 
@@ -26,6 +28,7 @@ export default function App(){
         <Route path="/TopRated" element={<TopRated />}/>
         <Route path="/FAQs" element={<FAQs />}/>
         <Route path="/ContactUs" element={<ContactUs />}/>
+        <Route path="*" element={<ErrorPage />}/>
       </Routes>
       <Footer/>
     </>    

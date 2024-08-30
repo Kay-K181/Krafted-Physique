@@ -52,7 +52,7 @@ export default function PageTemplate({excerciseGroup, title, filters}) {
   
 
     return(
-        <div className="pagesContainer">
+    <div className="pagesContainer">
         <div className={`titleContainer center`}>
             <h1 className="pagesTitle">{title}</h1>
         </div>
