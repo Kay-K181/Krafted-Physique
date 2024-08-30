@@ -27,6 +27,7 @@ export default function ContactUs() {
                                 value={input.username}
                                 placeholder="Full Name"
                                 onChange={handleChange}
+                                required
                             >                 
                             </input>
                         </label>
@@ -38,6 +39,7 @@ export default function ContactUs() {
                                 value={input.email}
                                 placeholder="E-mail"
                                 onChange={handleChange}
+                                required
                             >                 
                             </input>
                         </label>
@@ -50,6 +52,7 @@ export default function ContactUs() {
                                 value={input.postContent}
                                 placeholder="Message"
                                 onChange={handleChange}
+                                required
                             />
                         </label>    
                         <button>

@@ -1,9 +1,9 @@
-import PageTemplate from "../Template/PageTemplate"
+import PageTemplate from "../Template/GeneralPageTemplate"
 
 export default function Back() {
     return (
         <PageTemplate 
-            url={'back'}
+            excerciseGroup={'back'}
             title={'Back to Basics: Proven Methods for Toning and Strength'}
         />
     )

@@ -1,9 +1,9 @@
-import PageTemplate from "../Template/PageTemplate"
+import PageTemplate from "../Template/GeneralPageTemplate"
 
 export default function Legs() {
     return (
         <PageTemplate 
-            url={'legs'}
+            excerciseGroup={'legs'}
             title={'Leg Day Excellence: Proven Strength and Toning'}
         />
     )
