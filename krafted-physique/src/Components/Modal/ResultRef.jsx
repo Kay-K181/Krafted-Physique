@@ -1,8 +1,9 @@
 import { forwardRef } from 'react'
+import { motion } from 'framer-motion'
 
 const ResultRef = forwardRef(function Modal({selectedItem}, ref) {
   return (
-    <dialog ref={ref} className='moreInfo'>
+    <motion.dialog ref={ref} className='moreInfo'>
         <div className="infoContent">
             <h2>Unlock the Secrets of Your Chosen Exercise</h2>
             <p>{selectedItem?.description}</p>
@@ -12,7 +13,7 @@ const ResultRef = forwardRef(function Modal({selectedItem}, ref) {
                 <button className='closeMoreInfo'> Close </button>
             </form>
         </div>
-    </dialog>
+    </motion.dialog>
   )
 })
 
