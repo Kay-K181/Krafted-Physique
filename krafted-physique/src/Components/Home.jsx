@@ -8,7 +8,7 @@ export default function Home() {
     const {data, loading, error} = useFetch('http://localhost:8000/muscle-groups');
 
     if(loading) {
-        return <div>Loading...</div>;
+        return <div style={{background: 'black', textAlign: 'center', color: 'white'}}>Loading... ⏲️</div>;
     }
 
     if(error) {

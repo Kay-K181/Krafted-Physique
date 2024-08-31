@@ -13,7 +13,7 @@ export default function PageTemplate({excerciseGroup, title, filters}) {
     const {data, originalData, loading, error, setData} = useFetch(`http://localhost:8000/${excerciseGroup}`);
 
     if(loading) {
-        return <div>Loading...</div>
+        return <div style={{background: 'black', textAlign: 'center', color: 'white'}}>Loading... ⏲️</div>
     }
 
     if(error) {
