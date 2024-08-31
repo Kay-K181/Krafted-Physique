@@ -4,6 +4,7 @@ import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import ResultRef from "../Modal/ResultRef";
 import useFetch from "../Hooks/useFetch";
+import { motion } from "framer-motion"; 
 
 export default function PageTemplate({excerciseGroup, title, filters}) {
 
@@ -67,11 +68,16 @@ export default function PageTemplate({excerciseGroup, title, filters}) {
                 )}              
             <div className="sectionGrid">
                 {data.map((item) => (
-                    <div key={item.id} onClick={() => openModal(item.id)}>
+                    <motion.div 
+                        key={item.id} 
+                        onClick={() => openModal(item.id)}
+                        whileHover={{scale: 1.1}}
+                        transition={{type: 'spring', stiffness: 500}}
+                    >
                         <img src={item.image} alt={item.description} />
                         <h4 className="nameContainer">{item.name}</h4>
                         <p>{stars(item.rating)}</p>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </section>

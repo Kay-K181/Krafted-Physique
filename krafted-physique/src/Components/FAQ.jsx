@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function FAQ() {
     const [selected, setSelected] = useState(null);
@@ -47,7 +48,14 @@ export default function FAQ() {
                         <h3 className="question">{item.question}</h3> 
                         <span>{selected === index ? "-" : "+"}</span>         
                     </div> 
-                    <div className={`answer ${selected === index ? "show" : ''}`}>{item.answer}</div>               
+                    <motion.div 
+                        className={'answer'}
+                        initial = {{height: 0, opacity: 0}}
+                        animate={selected === index ? {height: 'auto', opacity: 1} : {height: 0, opacity: 0}}
+                        transition={{duration: 0.4}}
+                    >
+                        {item.answer}
+                    </motion.div>               
                 </div>           
                 ))}
             </div>
