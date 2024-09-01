@@ -46,7 +46,7 @@ export default function Home() {
                     <button className="workoutPlanBtn">Create your plan now!</button>
                 </div>
             </div>
-            <section className="mainSectionContainer">
+            <main className="mainSectionContainer">
                 <h2 className="primaryHeader">Select Your Training Area</h2>
                 <div className="mainSectionGrid">
                     {data.map((item) => (
@@ -56,7 +56,7 @@ export default function Home() {
                         </div>
                     ))}
                 </div>               
-            </section>
+            </main>
         </div>
     )
 }

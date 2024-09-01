@@ -38,10 +38,10 @@ export default function FAQ() {
 
     return (
         <div className="faqContainer">
-            <div className="titleContainer">
+            <header className="titleContainer">
                 <h1 className="titleFAQ">Frequently Asked Questions</h1>
-            </div>
-            <div className="accordian">
+            </header>
+            <section className="accordian">
                 {data.map((item, index) => (
                     <div className="item" key={index}>
                     <div className="title" onClick={() => toggle(index)}>
@@ -58,7 +58,7 @@ export default function FAQ() {
                     </motion.div>               
                 </div>           
                 ))}
-            </div>
+            </section>
 
         </div>
     )
