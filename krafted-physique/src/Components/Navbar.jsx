@@ -3,9 +3,9 @@ import {NavLink} from "react-router-dom"
 export default function Navbar() { 
     
     return(
-        <nav className="NavLayout">
-            <header className="NavHeader">Krafted Physique</header>
-            <div className="NavSection">
+        <header className="NavLayout">
+            <h1 className="NavHeader">Krafted Physique</h1>
+            <nav className="NavSection">
                 <NavLink to={"/"} activeclassname="active">
                     <div>Home</div>
                 </NavLink>
@@ -18,7 +18,7 @@ export default function Navbar() {
                 <NavLink to={"/ContactUs"} activeclassname="active">
                     <div>Contact Us</div>
                 </NavLink>
-            </div>
-        </nav>
+            </nav>
+        </header>
     )
 }

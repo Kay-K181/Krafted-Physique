@@ -54,9 +54,9 @@ export default function PageTemplate({excerciseGroup, title, filters}) {
 
     return(
     <div className="pagesContainer">
-        <div className={`titleContainer center`}>
+        <header className={`titleContainer center`}>
             <h1 className="pagesTitle">{title}</h1>
-        </div>
+        </header>
         <section className={'pagesSectionContainer'}>
             {filters && (
                 <div className="filterContainer">               

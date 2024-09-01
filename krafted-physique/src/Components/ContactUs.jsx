@@ -16,11 +16,11 @@ export default function ContactUs() {
     }
 
     return(
-        <div className="contactUsContainer">
-            <div className="contactUsTitleContainer">
+        <section className="contactUsContainer">
+            <header className="contactUsTitleContainer">
                 <h4 className="contactUsTitle">Get in touch with Krafted Physique</h4>
                 <p>Please use the form below to contact us with any questions you have. We aim to respond within 24 hours.</p>
-            </div>
+            </header>
             <div className="formContainer">
                 <h4>Contact Us</h4>
                 <form className="formLayout" onSubmit={submitInfo}>
@@ -65,6 +65,6 @@ export default function ContactUs() {
                         </button>
                     </form>
             </div>
-        </div>
+        </section>
     )
 }
